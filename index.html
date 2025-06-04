@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="src/styles/style.css">
+</head>
+<body>
+
+    <div class="left-container">
+        <h2>CRM</h2>
+        <form class="form" id="formCadastro">            
+            <input type="text" placeholder="Cliente" id="cliente" required>            
+            <input type="email" placeholder="E-mail" id="email" required>           
+            <input type="text" placeholder="Celular" id="celular" required>
+            <input type="text" placeholder="Endereço" id="endereco" required>
+
+             <div class="motivo-crm">
+                <label>Motivo</label>
+                <select id="motivo">
+                    <option>Marketing</option>
+                    <option>Pré-venda</option>
+                    <option>Pós-venda</option>
+                    <option>Suporte técnico</option>
+                    <option>Aniversário</option>
+                </select>
+            </div>        
+
+            <button type="submit">Gravar</button>
+
+        </form>
+    </div>
+
+    <div class="right-container">
+        <h2>List CRM´s</h2>
+        <form id="form-list">            
+            <ul id="list">
+                
+            </ul>
+        </form>
+    </div>
+
+    <script src="src/pages/home.js" type="module"></script>
+
+</body>
+</html>

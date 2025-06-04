@@ -1,0 +1,106 @@
+body {    
+    box-sizing: border-box;    
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('../utils/background.jpeg') center/cover no-repeat;
+}
+
+.left-container, .right-container {        
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+.left-container {    
+    width: 300px;    
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.right-container {    
+    width: 250px;    
+    background: linear-gradient(to right, #888888, rgb(134, 127, 142), #cccccc);
+}
+
+.right-container ul {    
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.right-container li {
+    background: rgb(37, 105, 147);
+    margin-bottom: 10px;
+    padding: 6px;
+    border-radius: 8px;    
+}
+
+form {
+    padding: 20px;    
+    color: white;    
+}
+
+h2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
+    margin-bottom: 40px;
+    text-align: center;
+    color: white;
+}
+
+input, .motivo-crm select {
+    border: none;
+    outline: none;
+    padding: 8px;
+    border-radius: 8px;
+    width: 95%;
+    margin-bottom: 12px;
+}
+
+.motivo-crm {    
+    display: flex;
+    justify-content: space-between;    
+    width: 98%;
+    margin-bottom: 15px;
+    padding: 8px;
+}
+
+.motivo-crm label {
+    padding: 6px;
+}
+
+button {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: white;
+    background: rgb(37, 105, 147);
+}
+
+button:hover {
+    background: brown;
+    border: 2px solid brown;
+}
+
+@media screen and (max-width: 1020px) {
+    body {
+        flex-direction: column;
+    }
+
+    .left-container h2 {
+        color: black;
+    }
+
+    .right-container {
+        width: 300px;
+    }
+}
