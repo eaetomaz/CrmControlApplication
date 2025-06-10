@@ -1,37 +1,41 @@
 import { LoadList, AddRecord } from "../utils/api.js";
 import { CreateList } from '../components/ListRecords.js';
 
+
+
 document.addEventListener('DOMContentLoaded', async() => {
     const formRecords = document.getElementById('formCadastro');
     const list = document.getElementById('list');
 
-    formRecords.addEventListener('submit', async() => {
-        e.PreventDefault();
+    const Records = await LoadList();
 
-        const cliente = document.getElementById('cliente');
-        const email = document.getElementById('email');
-        const celular = document.getElementById('celular');
-        const endereco = document.getElementById('endereco');
-        const motivo = document.getElementById('motivo');
+    formRecords.addEventListener('submit', async(e) => {
+        e.preventDefault();
+    
+        const cliente = document.getElementById('cliente').value;
+        const email = document.getElementById('email').value;
+        const celular = document.getElementById('celular').value;
+        const endereco = document.getElementById('endereco').value;
+        const motivo = document.getElementById('motivo').value;        
 
-        if(!cliente || !email || !celular || !endereco || !motivo) return;        
+        if(!cliente || !email || !celular || !endereco || !motivo)
+            return;               
+
+        const id = Records.length +1;
 
         const data = {
-            cliente: cliente,
-            email: email,
-            celular: celular,
-            endereco: endereco,
-            motivo: motivo
+            id,
+            cliente,
+            email,
+            celular,
+            endereco,
+            motivo
         };
-
-        console.log('teste');
-
+                        
         await AddRecord(data);
         await CreateList(list);
         formRecords.reset();
     });
 
-
-console.log('teste');
     await CreateList(list);
 })

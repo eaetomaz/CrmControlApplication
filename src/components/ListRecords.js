@@ -8,18 +8,19 @@ export async function CreateList(list) {
     listCrm.forEach(crm => {
         
         const li = document.createElement('li');
-        li.textContent = crm.cliente + ' | ' + crm.celular;
+        li.textContent = crm.cliente + ' | ' + crm.celular;        
 
         const btnDelete = document.createElement('button');
         btnDelete.textContent = 'Apagar';
-        btnDelete.onclick = 'click', async() => {
+        btnDelete.onclick = async() => {
             await DeleteRecord(crm.id);
             await CreateList(list);
+
         };
         
         li.appendChild(btnDelete);        
         list.appendChild(li);
-    });
+    });    
 
 }
 

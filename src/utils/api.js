@@ -5,11 +5,11 @@ const apiUrl = 'http://localhost:3000/consult';
 async function apiRequest(endpoint, method = 'GET', data = null) {
     const option = {
         method,
-        headers: { 'Content-type': 'application/json' }
-    };
+        headers: { 'content-type': 'application/json' }
+    };    
 
-    if(data) option.body = JSON.stringify({data});
-
+    if(data) option.body = JSON.stringify(data);    
+    
     try {
         const res = await fetch(endpoint, option);
         if(!res.ok) throw new Error(`Erro: ${res.status}`);

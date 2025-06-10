@@ -5,10 +5,8 @@ const path = require('path');
 
 app.use(express.json())
 
-// Servir arquivos estáticos do front-end (ajuste o caminho conforme seu projeto)
 app.use(express.static(path.join(__dirname)));
 
-// Se quiser servir index.html diretamente
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
