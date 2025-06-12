@@ -25,7 +25,7 @@ body {
 }
 
 .right-container {    
-    width: 250px;    
+    width: 500px;    
     background: linear-gradient(to right, #888888, rgb(134, 127, 142), #cccccc);
 }
 
@@ -76,7 +76,7 @@ input, .motivo-crm select {
     padding: 6px;
 }
 
-button {
+.btn-gravar {
     width: 100%;
     padding: 8px;
     border: none;
@@ -86,9 +86,36 @@ button {
     background: rgb(37, 105, 147);
 }
 
-button:hover {
+.btn-gravar:hover {
     background: brown;
     border: 2px solid brown;
+}
+
+.btn-delete, .btn-att {
+    width: 15%;    
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: white;
+}
+
+.btn-delete {
+    background: rgb(169, 5, 5);
+}
+
+.btn-delete:hover {
+    background-color: rgba(173, 85, 18, 0.734);
+    border: 3px solid rgba(173, 85, 18, 0.734);
+}
+
+.btn-att {
+    background: rgb(16, 90, 16);
+}
+
+.btn-att:hover {
+    background-color: rgba(20, 40, 23, 0.734);
+    border: 3px solid rgba(20, 40, 23, 0.734);
 }
 
 @media screen and (max-width: 1020px) {
