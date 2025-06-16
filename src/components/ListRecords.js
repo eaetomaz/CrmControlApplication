@@ -1,6 +1,6 @@
-import { LoadList, AttRecord, DeleteRecord } from "../utils/api.js";
+import { LoadList, AttRecord, DeleteRecord, getData } from "../utils/api.js";
 
-export async function CreateList(list) {
+export async function CreateList(list, formRecords) {
     list.innerHTML = '';
 
     const listCrm = await LoadList();
@@ -20,21 +20,28 @@ export async function CreateList(list) {
         btnDelete.className = 'btn-delete';
         btnDelete.style.marginLeft = 'autot';
         btnDelete.textContent = 'Apagar';        
-        btnDelete.onclick = async() => {
+        btnDelete.onclick = async(event) => {
+            e.preventDefault();
             await DeleteRecord(crm.id);
             await CreateList(list);
 
-        };
-
+        };        
+        
         const btnAtt = document.createElement('button');
         btnAtt.className = 'btn-att';
         btnAtt.style.marginLeft = 'auto';
         btnAtt.textContent = 'Atualizar';
-        btnAtt.onclick = async() => {
-            await AttRecord(data);
-            await CreateList(list);
+        btnAtt.onclick = async(e) => {
+            e.preventDefault();
+
+             document.getElementById("btnGravar").textContent = "Atualizar";   
+
+            //await AttRecord(crm);                             
+
+            await getData(crm, formRecords);
+            await CreateList(list, formRecords);
         };
-                            
+                          
         li.appendChild(btnAtt);
         li.appendChild(btnDelete);    
         list.appendChild(li);

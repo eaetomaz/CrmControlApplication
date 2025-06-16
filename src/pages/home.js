@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async() => {
         };
                         
         await AddRecord(data);
-        await CreateList(list);
+        await CreateList(list, formRecords);
         formRecords.reset();
     });
 

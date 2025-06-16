@@ -30,7 +30,21 @@ function validateData(data) {
     return true;
 }
 
+export async function getData(data, form) {
+    const campos = ["cliente", "email", "celular", "endereco", "motivo"];
+
+    for (const campo of campos) {
+        const input = document.getElementById(campo);
+        if (input) {
+            input.value = data[campo] ?? ""; // fallback para string vazia
+        } else {
+            console.warn(`Campo "${campo}" não encontrado no formulário.`);
+        }
+    }
+}
+
+
 export const LoadList = () => apiRequest(apiUrl);
 export const AddRecord = (data) => apiRequest(apiUrl, 'POST', data);
-export const AttRecord = (data) => apiRequest(`${apiUrl}/${id}`, 'PUT', data);
+export const AttRecord = (data) => apiRequest(`${apiUrl}/${data.id}`, 'PUT', data);
 export const DeleteRecord = (id) => apiRequest(`${apiUrl}/${id}`, 'DELETE');
