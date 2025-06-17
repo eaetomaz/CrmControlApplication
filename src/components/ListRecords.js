@@ -23,7 +23,7 @@ export async function CreateList(list, formRecords) {
         btnDelete.onclick = async(event) => {
             e.preventDefault();
             await DeleteRecord(crm.id);
-            await CreateList(list);
+            await CreateList(list, formRecords);
 
         };        
         
