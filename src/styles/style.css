@@ -25,8 +25,8 @@ body {
 }
 
 .right-container {    
-    width: 500px;    
-    background: linear-gradient(to right, #888888, rgb(134, 127, 142), #cccccc);
+    width: 670px;    
+    background: linear-gradient(to right, #fcf8f8, rgb(211, 210, 212), #cccccc);
 }
 
 .right-container ul {    
@@ -40,7 +40,7 @@ body {
     background: rgb(37, 105, 147);
     margin-bottom: 10px;
     padding: 6px;
-    border-radius: 8px;    
+    border-radius: 8px;       
 }
 
 form {
@@ -116,6 +116,19 @@ input, .motivo-crm select {
 .btn-att:hover {
     background-color: rgba(20, 40, 23, 0.734);
     border: 3px solid rgba(20, 40, 23, 0.734);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; 
+}
+
+th, td {
+    padding: 12px;        
+    text-align: left;    
+    word-wrap: break-word;
+    white-space: normal;
 }
 
 @media screen and (max-width: 1020px) {

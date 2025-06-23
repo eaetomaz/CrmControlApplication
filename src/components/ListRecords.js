@@ -4,23 +4,65 @@ export async function CreateList(list, formRecords) {
     list.innerHTML = '';
 
     const listCrm = await LoadList();
+
+    const trTitulos = document.createElement('tr');
+
+    const tdNome = document.createElement('td');    
+    tdNome.innerHTML = 'Nome';
+
+    const tdEmail = document.createElement('td');
+    tdEmail.innerHTML = 'E-mail';
+
+    const tdCelular = document.createElement('td');
+    tdCelular.innerHTML = 'Celular';
+
+    const tdEndereco = document.createElement('td');
+    tdEndereco.innerHTML = 'Endereço';
+
+    const tdMotivo = document.createElement('td');
+    tdMotivo.innerHTML = 'Motivo';
+    
+    trTitulos.appendChild(tdNome);
+    trTitulos.appendChild(tdEmail);
+    trTitulos.appendChild(tdCelular);
+    trTitulos.appendChild(tdEndereco);
+    trTitulos.appendChild(tdMotivo);
+    list.appendChild(trTitulos);    
     
     listCrm.forEach(crm => {
         
-        const li = document.createElement('li');
-        li.style.display = 'flex';
-        li.style.alignItems = 'center';        
+        const tr = document.createElement('tr');
 
-        li.innerHTML = crm.cliente + '<br>Celular: ' + crm.celular +
-         '<br>Email: ' + crm.email +
-         '<br>Motivo: ' + crm.motivo +
-         '<br>Endereço: ' + crm.endereco;        
+        const tdNome = document.createElement('td');
+        tdNome.style.display = 'flex';
+        tdNome.style.alignItems = 'center';
+        tdNome.innerHTML = crm.cliente;        
+
+        const tdEmail = document.createElement('td');                
+        tdEmail.innerHTML = crm.email;        
+
+        const tdCelular = document.createElement('td');
+        tdCelular.innerHTML = crm.celular;        
+
+        const tdEndereco = document.createElement('td');
+        tdEndereco.innerHTML = crm.endereco;        
+
+        const tdMotivo = document.createElement('td');
+        tdMotivo.innerHTML = crm.motivo;
+
+        //tr.style.display = 'flex';
+        //tr.style.alignItems = 'center';        
+
+        // li.innerHTML = crm.cliente + '<br>Celular: ' + crm.celular +
+        //  '<br>Email: ' + crm.email +
+        //  '<br>Motivo: ' + crm.motivo +
+        //  '<br>Endereço: ' + crm.endereco;        
+            
 
         const btnDelete = document.createElement('button');
-        btnDelete.className = 'btn-delete';
-        btnDelete.style.marginLeft = 'autot';
+        btnDelete.className = 'btn-delete';        
         btnDelete.textContent = 'Apagar';        
-        btnDelete.onclick = async(event) => {
+        btnDelete.onclick = async(e) => {
             e.preventDefault();
             await DeleteRecord(crm.id);
             await CreateList(list, formRecords);
@@ -42,9 +84,16 @@ export async function CreateList(list, formRecords) {
             await CreateList(list, formRecords);
         };
                           
-        li.appendChild(btnAtt);
-        li.appendChild(btnDelete);    
-        list.appendChild(li);
+        //li.appendChild(btnAtt);
+        //li.appendChild(btnDelete);    
+        //list.appendChild(li);
+
+        tr.appendChild(tdNome);
+        tr.appendChild(tdEmail);
+        tr.appendChild(tdCelular);
+        tr.appendChild(tdEndereco);
+        tr.appendChild(tdMotivo);
+        list.appendChild(tr);
     });    
 
 }
