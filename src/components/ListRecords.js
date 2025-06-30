@@ -11,16 +11,13 @@ export async function CreateList(list, formRecords) {
         li.style.display = 'flex';
         li.style.alignItems = 'center';        
 
-        li.innerHTML = crm.cliente + '<br>Celular: ' + crm.celular +
-         '<br>Email: ' + crm.email +
-         '<br>Motivo: ' + crm.motivo +
-         '<br>Endereço: ' + crm.endereco;        
+        li.innerHTML = crm.cliente + ' - Celular: ' + crm.celular;
 
         const btnDelete = document.createElement('button');
         btnDelete.className = 'btn-delete';
         btnDelete.style.marginLeft = 'autot';
         btnDelete.textContent = 'Apagar';        
-        btnDelete.onclick = async(event) => {
+        btnDelete.onclick = async(e) => {
             e.preventDefault();
             await DeleteRecord(crm.id);
             await CreateList(list, formRecords);
