@@ -20,16 +20,6 @@ async function apiRequest(endpoint, method = 'GET', data = null) {
     }    
 }
 
-function validateData(data) {
-    if(!data || typeof data !== 'object') {
-        console.error('Dados inválidos:', data);
-        return false;
-    }
-
-    //Validacões adicionais
-    return true;
-}
-
 export let idAtt;
 
 export async function getData(data, form) {

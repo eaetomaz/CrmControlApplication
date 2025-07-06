@@ -11,7 +11,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-let listCrm = [ {id: 1, cliente: "Jorge", email: "jorge@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"} ];
+let listCrm = [ {id: 1, cliente: "Jorge", email: "jorge@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
+    {id: 2, cliente: "Claúdio", email: "claudio@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
+    {id: 3, cliente: "Maria", email: "maria@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
+    {id: 4, cliente: "Fulano de tal", email: "fulano@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
+    {id: 5, cliente: "Flávio", email: "flavio@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"}
+ ];
 
 //Listar todas os CRM´s
 app.get('/consult', (req, res) => {

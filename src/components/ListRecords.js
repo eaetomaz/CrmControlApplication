@@ -33,8 +33,6 @@ export async function CreateList(list, formRecords) {
 
              document.getElementById("btnGravar").textContent = "Atualizar";   
 
-            //await AttRecord(crm);                             
-
             await getData(crm, formRecords);
             await CreateList(list, formRecords);
         };
