@@ -4,6 +4,13 @@ import { CreateList } from '../components/ListRecords.js';
 const btnGravar = document.getElementById("btnGravar");
 const formRecords = document.getElementById('formCadastro');
 
+export function mostrarTela(indice) {
+    const telas = document.querySelector('.telas');
+    telas.style.transform = `translateX(-${indice * 100}%)`;
+}
+
+window.mostrarTela = mostrarTela;
+
 document.addEventListener('DOMContentLoaded', async() => {
     
     const list = document.getElementById('list');
@@ -44,4 +51,4 @@ btnGravar.addEventListener('click', async(e) => {
         }
 
         formRecords.reset();
-    });
+});     
