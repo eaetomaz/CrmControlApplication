@@ -112,6 +112,19 @@
       top: 20%;
       font-size: 0.8rem;
       color: #aaa;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .autor a {
+      text-decoration: none;
+      font-size: 16px;
+      margin-bottom: 10px;
+    } 
+    
+    .iconHome {
+      font-size: 24px; 
     }
 
     .telas-wrapper {

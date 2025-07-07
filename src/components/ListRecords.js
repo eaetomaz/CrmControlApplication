@@ -14,9 +14,8 @@ export async function CreateList(list, formRecords) {
         li.innerHTML = crm.cliente + ' - Celular: ' + crm.celular;
 
         const btnDelete = document.createElement('button');
-        btnDelete.className = 'btn-delete';
-        btnDelete.style.marginLeft = 'autot';
-        btnDelete.textContent = 'Apagar';        
+        btnDelete.className = 'btn-delete';                            
+        //btnDelete.textContent = 'Apagar';        
         btnDelete.onclick = async(e) => {
             e.preventDefault();
             await DeleteRecord(crm.id);
@@ -24,10 +23,13 @@ export async function CreateList(list, formRecords) {
 
         };        
         
+        const iconTrash = document.createElement('i');
+        iconTrash.className = 'fas fa-trash'; 
+        btnDelete.appendChild(iconTrash);         
+        
         const btnAtt = document.createElement('button');
         btnAtt.className = 'btn-att';
-        btnAtt.style.marginLeft = 'auto';
-        btnAtt.textContent = 'Atualizar';
+        btnAtt.style.marginLeft = 'auto';        
         btnAtt.onclick = async(e) => {
             e.preventDefault();
 
@@ -36,6 +38,10 @@ export async function CreateList(list, formRecords) {
             await getData(crm, formRecords);
             await CreateList(list, formRecords);
         };
+
+        const iconEdit = document.createElement('i');
+        iconEdit.className = 'fas fa-edit';
+        btnAtt.appendChild(iconEdit);
                           
         li.appendChild(btnAtt);
         li.appendChild(btnDelete);    
