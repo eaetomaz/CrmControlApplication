@@ -1,47 +1,101 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="src/styles/style.css">
+  <meta charset="UTF-8">
+  <title>Página inicial</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles/style.css">
 </head>
 <body>
 
-    <div class="left-container">
-        <h2>CRM</h2>
-        <form class="form" id="formCadastro">            
-            <input type="text" placeholder="Cliente" id="cliente" required>            
-            <input type="email" placeholder="E-mail" id="email" required>           
-            <input type="text" placeholder="Celular" id="celular" required>
-            <input type="text" placeholder="Endereço" id="endereco" required>
+  <header>
+    <span>Não tens mais resultado nas vendas?</span>
+    <a href="#" onclick="mostrarTela(0)">Voltar ao início ⭢</a>
+  </header>
 
-             <div class="motivo-crm">
-                <label>Motivo</label>
-                <select id="motivo">
-                    <option>Marketing</option>
-                    <option>Pré-venda</option>
-                    <option>Pós-venda</option>
-                    <option>Suporte técnico</option>
-                    <option>Aniversário</option>
-                </select>
-            </div>        
-
-            <button type="submit" class="btn-gravar" id="btnGravar">Gravar</button>
-
-        </form>
+  <div class="container">
+    <div class="left">
+      <p class="top">Que tal aperfeiçoar<br>sua gestão de</p>
+      <h1>relacionamento<br>com o cliente?</h1>
     </div>
 
-    <div class="right-container">
-        <h2>Histórico</h2>
-        <form id="form-list">            
-            <ul id="list">
+    <div class="right">
+      <div class="card">
+        <div class="card-title">Acesse abaixo ⬇</div>
+
+        <a href="#" onclick="mostrarTela(0)">Início</a>
+        <a href="#" onclick="mostrarTela(1)">Cadastro</a>
+        <a href="#" onclick="mostrarTela(2)">Histórico</a>
+
+      </div>
+      <p class="desc">
+        Mais controle, mais vendas,<strong> menos esforço.</strong>
+      </p>
+    </div>
+
+    <div class="telas-wrapper">
+        <div class="telas">
+            <section class="tela" id="tela-inicio">🏠 Bem-vindo ao CRM!
+
+            </section>
+
+            <section class="tela" id="tela-cadastro">📝 Cadastro CRM<br><br><br><br>
                 
-            </ul>
-        </form>
+                <form class="form" id="formCadastro">   
+
+                    <input type="text" placeholder="Cliente" id="cliente" required>            
+                    <input type="email" placeholder="E-mail" id="email" required>           
+                    <input type="text" placeholder="Celular" id="celular" required>
+                    <input type="text" placeholder="Endereço" id="endereco" required>
+
+                    <div class="motivo-crm">
+                        <label>Motivo</label>
+                        <select id="motivo">
+                            <option>Marketing</option>
+                            <option>Pré-venda</option>
+                            <option>Pós-venda</option>
+                            <option>Suporte técnico</option>
+                            <option>Aniversário</option>
+                        </select>
+                    </div>        
+
+                    <button type="submit" class="btn-gravar" id="btnGravar">Gravar</button>
+
+                </form>
+
+            </section>
+
+            <section class="tela" id="tela-historico">📋 Histórico<br><br><br><br>
+                
+                <form id="form-list">            
+                    <ul id="list">
+                        
+                    </ul>
+                </form>
+
+            </section>
+        </div>
     </div>
 
-    <script src="src/pages/home.js" type="module"></script>
+  </div>
+
+  <!-- <footer>
+    https://github.com/eaetomaz
+  </footer>
+
+  <div class="autor">
+    ControlCRMApplication | 2025
+  </div> -->
 
 </body>
+
+<script>
+  function mostrarTela(indice) {
+    const telas = document.querySelector('.telas');
+    telas.style.transform = `translateX(-${indice * 100}%)`;
+  }
+</script>
+
+<script src="src/pages/home.js" type="module"></script>
+
 </html>
