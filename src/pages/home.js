@@ -48,6 +48,7 @@ btnGravar.addEventListener('click', async(e) => {
             await CreateList(list, formRecords);    
             
             btnGravar.textContent = "Gravar";
+            mostrarTela(2);
         }
 
         formRecords.reset();

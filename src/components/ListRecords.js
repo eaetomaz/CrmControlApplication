@@ -1,4 +1,5 @@
 import { LoadList, AttRecord, DeleteRecord, getData } from "../utils/api.js";
+import { mostrarTela } from "../pages/home.js";
 
 export async function CreateList(list, formRecords) {
     list.innerHTML = '';
@@ -37,6 +38,7 @@ export async function CreateList(list, formRecords) {
 
             await getData(crm, formRecords);
             await CreateList(list, formRecords);
+            mostrarTela(1);
         };
 
         const iconEdit = document.createElement('i');
