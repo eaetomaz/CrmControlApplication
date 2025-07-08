@@ -1,11 +1,10 @@
-## 🖼️ Telas do Projeto
+## 🖼️ Project Screens
 
-### Tela inicial
-![Tela de Login](./assets/home.png)
+### Home Screen
+![Login Screen](./src/assets/home.png)
 
-### Tela de cadastro
-![Tela de Login](./assets/registrationscreen.png)
+### Registration Screen
+![Login Screen](./src/assets/registrationscreen.png)
 
-### Tela de histórico de registros
-![Tela de Login](./assets/recordsscreen.png)
-
+### Registration History Screen
+![Login Screen](./src/assets/recordsscreen.png)
