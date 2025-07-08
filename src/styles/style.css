@@ -130,7 +130,7 @@
     .telas-wrapper {
         overflow: hidden;
         width: 50%;
-        height: 500px; /* ajuste conforme sua necessidade */
+        height: 500px;
         margin-top: 30px;
         border-radius: 12px;
         background: #1b1b1b;
@@ -218,6 +218,72 @@
 
     #list button:hover {
         border: 1px solid gray;
+    }
+
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+      width: fit-content;
+      margin: 2rem;
+    }
+
+    .github-card {
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, #2c2c2e, #1f1f21);
+      border-radius: 20px;
+      padding: 1.2rem;
+      gap: 1rem;
+    }
+
+    .github-card img {
+      width: 50px;
+      height: 50px;
+      filter: brightness(0.9);
+    }
+
+    .github-info h3 {
+      margin: 0;
+      font-size: 1.1rem;
+    }
+
+    .github-info p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .social-icons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .icon img {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      padding: 5px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .icon:hover img {
+      transform: scale(1.1);
+    }
+
+    .linkedin img {
+      background: linear-gradient(to right, #0077b5, #0e76a8);
+    }
+
+    .instagram img {
+      background: linear-gradient(to right, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     }
 
     @media (max-width: 768px) {
