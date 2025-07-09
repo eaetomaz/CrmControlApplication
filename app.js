@@ -11,11 +11,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-let listCrm = [ {id: 1, cliente: "Jorge", email: "jorge@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
-    {id: 2, cliente: "Claúdio", email: "claudio@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
-    {id: 3, cliente: "Maria", email: "maria@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
-    {id: 4, cliente: "Fulano de tal", email: "fulano@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"},
-    {id: 5, cliente: "Flávio", email: "flavio@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing"}
+let listCrm = [ {id: 1, cliente: "Jorge", email: "jorge@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing", confirmado: false},
+    {id: 2, cliente: "Claúdio", email: "claudio@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing", confirmado: false},
+    {id: 3, cliente: "Maria", email: "maria@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing", confirmado: false},
+    {id: 4, cliente: "Fulano de tal", email: "fulano@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing", confirmado: false},
+    {id: 5, cliente: "Flávio", email: "flavio@gmail.com", celular: "(49) 9 8888-8888", endereco: "Travessa São Paulo, 236", motivo: "Marketing", confirmado: false}
  ];
 
 //Listar todas os CRM´s
@@ -44,7 +44,8 @@ app.post('/consult', (req, res) => {
         email: email,
         celular: celular,
         endereco: endereco,
-        motivo: motivo
+        motivo: motivo,
+        confirmado: false
     };
 
     listCrm.push(newCrm);
@@ -55,7 +56,7 @@ app.post('/consult', (req, res) => {
 app.put('/consult/:id', (req, res) => {
     const { id } = req.params;
     const { cliente, email, celular, 
-        endereco, motivo } = req.body;
+        endereco, motivo, confirmado } = req.body;
 
     const record = listCrm.find(t => t.id == id);
     if(!record) return res.status(404).json({ error: 'Registro não encontrado' });
@@ -65,6 +66,7 @@ app.put('/consult/:id', (req, res) => {
     record.celular = celular ?? record.celular;
     record.endereco = endereco ?? record.endereco;
     record.motivo = motivo ?? record.motivo;
+    record.confirmado = confirmado ?? record.confirmado;
 
     res.json(record);
 });

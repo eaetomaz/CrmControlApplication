@@ -6,7 +6,7 @@ async function apiRequest(endpoint, method = 'GET', data = null) {
     const option = {
         method,
         headers: { 'content-type': 'application/json' }
-    };    
+    };        
 
     if(data) option.body = JSON.stringify(data);    
     
@@ -23,7 +23,7 @@ async function apiRequest(endpoint, method = 'GET', data = null) {
 export let idAtt;
 
 export async function getData(data, form) {
-    const campos = ["cliente", "email", "celular", "endereco", "motivo"];
+    const campos = ["cliente", "email", "celular", "endereco", "motivo", "confirmado"];
 
     idAtt = data.id;
 

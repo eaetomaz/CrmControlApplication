@@ -11,12 +11,11 @@ export async function CreateList(list, formRecords) {
         const li = document.createElement('li');
         li.style.display = 'flex';
         li.style.alignItems = 'center';        
-
-        li.innerHTML = crm.cliente + ' - Celular: ' + crm.celular;
+        li.innerHTML = crm.cliente + ' - Celular: ' + crm.celular;        
+        li.style.textDecoration = crm.confirmado ? 'line-through' : 'none'; // Processo finalizado
 
         const btnDelete = document.createElement('button');
-        btnDelete.className = 'btn-delete';                            
-        //btnDelete.textContent = 'Apagar';        
+        btnDelete.className = 'btn-delete';                                    
         btnDelete.onclick = async(e) => {
             e.preventDefault();
             await DeleteRecord(crm.id);
@@ -44,9 +43,32 @@ export async function CreateList(list, formRecords) {
         const iconEdit = document.createElement('i');
         iconEdit.className = 'fas fa-edit';
         btnAtt.appendChild(iconEdit);
+
+        const btnCheck = document.createElement('button');
+        btnCheck.onclick = async(e) => {
+            e.preventDefault();
+
+            const newData = {
+                id: crm.id,
+                cliente: crm.cliente,
+                email: crm.email,
+                celular: crm.celular,
+                endereco: crm.endereco,
+                motivo: crm.motivo,
+                confirmado: crm.confirmado == true ? false : true                
+            };          
+
+            await AttRecord(crm.id, newData);
+            await CreateList(list, formRecords);
+        };
+
+        const iconCheck = document.createElement('i');
+        iconCheck.className = crm.confirmado == false ? 'fas fa-check' : 'fas fa-times';
+        btnCheck.appendChild(iconCheck);
                           
         li.appendChild(btnAtt);
         li.appendChild(btnDelete);    
+        li.appendChild(btnCheck);
         list.appendChild(li);
     });    
 

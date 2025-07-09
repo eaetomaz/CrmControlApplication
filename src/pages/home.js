@@ -28,6 +28,7 @@ btnGravar.addEventListener('click', async(e) => {
             const celular = document.getElementById('celular').value;
             const endereco = document.getElementById('endereco').value;
             const motivo = document.getElementById('motivo').value;        
+            const confirmado = false;
 
             if(!cliente || !email || !celular || !endereco || !motivo)
                 return;          
@@ -35,14 +36,14 @@ btnGravar.addEventListener('click', async(e) => {
         if(btnGravar.textContent == 'Gravar') {                                   
 
             const id = list.length +1;
-            const data = { id, cliente, email, celular, endereco, motivo};
+            const data = { id, cliente, email, celular, endereco, motivo, confirmado};
                             
             await AddRecord(data);
             await CreateList(list, formRecords);            
 
         } else {
 
-            const newData = {cliente, email, celular, endereco, motivo };
+            const newData = {cliente, email, celular, endereco, motivo, confirmado};
             
             await AttRecord(idAtt, newData);
             await CreateList(list, formRecords);    
