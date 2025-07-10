@@ -286,6 +286,18 @@
       background: linear-gradient(to right, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
     }
 
+    .filter {          
+      display: flex;
+      justify-content: right;
+      margin-bottom: 10px;
+    }
+
+    .filter button {
+      border: none;
+      border-radius: 12px;
+      padding: 10px;                        
+    }
+
     @media (max-width: 768px) {
       .container {
         flex-direction: column;
