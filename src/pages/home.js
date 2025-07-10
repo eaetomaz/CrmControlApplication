@@ -3,6 +3,15 @@ import { CreateList } from '../components/ListRecords.js';
 
 const btnGravar = document.getElementById("btnGravar");
 const formRecords = document.getElementById('formCadastro');
+const btnFiltro = document.getElementById('filter-button');
+const list = document.getElementById('list');
+
+btnFiltro.addEventListener('click', async(e) => {
+    e.preventDefault();
+
+    await CreateList(list, formRecords, btnFiltro.className == 'filtro fas fa-filter');
+    btnFiltro.className = btnFiltro.className == 'filtro fas fa-filter' ? 'filtro fas fa-times' : 'filtro fas fa-filter';        
+})
 
 export function mostrarTela(indice) {
     const telas = document.querySelector('.telas');
@@ -11,12 +20,10 @@ export function mostrarTela(indice) {
 
 window.mostrarTela = mostrarTela;
 
-document.addEventListener('DOMContentLoaded', async() => {
-    
-    const list = document.getElementById('list');
+document.addEventListener('DOMContentLoaded', async() => {    
 
     const Records = await LoadList();
-    await CreateList(list);
+    await CreateList(list);    
 })
 
 
